@@ -1,0 +1,14 @@
+name: GA Assignment Action
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step by 23f3001068@ds.study.iitm.ac.in
+        run: echo "GitHub Action triggered successfully!"
+      - name: Verify email in step
+        run: |
+          echo "Email: 23f3001068@ds.study.iitm.ac.in"
+          echo "Action complete ✅"
