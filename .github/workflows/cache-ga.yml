@@ -1,0 +1,25 @@
+name: Cache GA Assignment
+
+on: [push]
+
+jobs:
+  cache-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: prime-cache-6ca3d92
+        id: cache-step
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm  # Example: npm cache
+          key: cache-6ca3d92-${{ runner.os }}
+      
+      - name: Cache status
+        run: |
+          if [ "${{ steps.cache-step.outputs.cache-hit }}" == 'true' ]; then
+            echo "✅ Cache HIT"
+          else
+            echo "❌ Cache MISS (primed)"
+          fi
